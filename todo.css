@@ -1,0 +1,438 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient( to right, #74ebd5, #acb6e5);
+}
+body {
+  min-height: 100vh;  
+  display: flex;   
+  flex-direction: column;
+}
+.card{
+    display: flex;
+    justify-self: center;
+    width: 600px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+}
+.organize{
+    display: flex;
+
+}
+.action{
+    display: flex;
+    justify-content: space-between;
+}
+.radio{
+    width: 15px;
+    height: 15px;
+    margin: 0;
+}
+#entertask{
+    display: flex;
+    justify-self: center;
+    background: rgba(255, 255, 255, 0.99);
+    border: none;
+    border-radius: 5px;
+    width: 450px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.due-date{
+    display: flex;
+    flex-direction: column;
+}
+.due-date label{
+    font-size: 17px;
+    margin-bottom: 0;
+}
+.due-date input{
+    font-size: 14px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    border: 0;
+}
+.reminder{
+    display: flex;
+    flex-direction: column;
+}
+.reminder label{
+     font-size: 17px;
+    margin-bottom: 0;
+}
+.reminder-input{
+    font-size: 14px;
+    border-radius: 5px;
+    width: 150px;
+    height: 30px;
+    border: 0;
+}
+.first{
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
+    /* justify-content: space-between; */
+    margin-left: 10px;
+    margin-right: 50px;
+}
+.add-button{
+    display: flex;
+    align-items: center;
+    /* margin-left: 30px; */
+    margin-right: 20px;
+    margin-top: 5px;
+}
+#add-btn{
+    
+    background-color: #00c851;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    height: 30px;
+    width: 150px;
+}
+#add-btn:hover{
+    box-shadow: 0 0 12px rgba(0, 200, 81, 0.6);
+    transform: translateY(-1px);
+
+}
+.task h6{
+    display: flex;
+    justify-content: center;
+}
+.inner-error{
+    font-size: 10px;
+        color:red;
+        display:flex;
+        justify-content:center;
+        margin-top:5px;
+}
+.done-btn{
+    background-color:#00c851 ;
+    color: white;
+    height: 30px;
+    width: 30px;
+    font-size: 15px;
+}
+.edit-btn{
+    font-size: 15px;
+    color: white;
+    height: 30px;
+    width: 50px;
+    background-color: #007bff;
+}
+.del-btn{
+    font-size: 15px;
+    color: white;
+    height: 30px;
+    width: 30px;
+    background-color: #dc3545
+}
+
+.action-btn{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin-bottom: 20px;
+}
+#task-list li{
+  align-items: center;
+ 
+}
+#task-list button {
+  margin-left: 10px;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cut{
+    max-width: 200px;
+}
+.another-div{
+    display: flex;
+    align-items: center;
+}
+#task-list li::first-letter{
+    text-transform: uppercase;
+}
+.todo-list {
+  max-height: 355px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+#clearList{
+    display: flex;
+    /* justify-content: baseline; */
+    align-self: center;
+    width: 80px;
+    background-color: #dc3545;
+    font-size: 15px;
+    color: white;
+    height: 30px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.overlay {
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+.confirm {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  z-index: 1001; 
+}
+.cancel{
+    margin-right: 20px;
+    border: 0;
+    background: rgba(200, 200, 200, 0.25);
+}
+.cancel:hover{
+    box-shadow: 0 0 12px rgba(0, 200, 81, 0.6);
+    transform: translateY(-1px);
+}
+.yes{
+    margin-left: 10px;
+    border: 0;
+    background: rgba(200, 200, 200, 0.25);
+}
+.yes:hover{
+    box-shadow: 0 0 12px rgba(0, 200, 81, 0.6);
+    transform: translateY(-1px);
+}
+.line{
+    background: rgba(113, 133, 133, 0.5);
+    height: 15px;
+    width: 5px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+.line1{
+    background: rgba(113, 133, 133, 0.5);
+    height: 15px;
+    width: 5px;
+    margin-top: 7px;
+    border-radius: 5px;
+}
+#clock {
+      font-size: 15px;
+      font-weight: bold;
+      color: #333;
+}
+.info{
+    /* display: flex; */
+    background: rgba(250, 250, 250, 0.99);
+    border-radius: 10px;
+    height: 60px;
+    /* justify-content: space-between; */
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 7px;
+}
+.list-done{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 5px;
+    /* align-items: center; */
+}
+.list-do{
+    display: flex;
+}
+.today{
+    font-size: larger;
+    margin-top: 15px;
+}
+.list1{
+    margin-left: 20px;
+}
+.undone{
+    display: flex;
+}
+.shift{
+    margin: 10px 0 0 20px;
+}
+@media (min-width:376px) and (max-width:767px){
+     .add-button{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        margin-top: -10px;
+    }
+    #add-btn{
+        width: 130px;
+        margin-right: 5px;
+        font-size: 17px;
+    }
+    .card{
+        width: 390px;
+        height: 750px;
+    }
+    .todo-list {
+        max-height: 570px;
+    }
+    .del-btn{
+        margin-right: 10px;
+    }
+    .undone h6{
+        font-size: 12px;
+    }
+    .list-done h6{
+        font-size: 15px;
+        height: 0;
+        padding: 0;
+        margin-left: 0;
+    }
+    .list-done{
+        margin-left: 10px;
+    }
+    .first{
+        display: grid;
+        grid-template-columns: 1.8fr 0.5fr 1.8fr;
+        margin: 0;
+        margin-left: 10px;
+        padding-top: 5px;
+    }
+    .line{
+        margin-top: 8px;
+        margin-left: 5px;
+    }
+    .line1{
+         margin-left: 5px; 
+    }
+    #radio{
+        margin-left: -175px;
+    }
+    .rad{
+        display: flex;
+        margin-top: 5px;
+    }
+     #taskDueTime{
+        margin-left: 17px;
+        width: 130px;
+        height: 25px;
+    }
+    #reminderTime{
+        width: 130px;
+        height: 25px;
+        margin-top: 30px;
+    }
+    #entertask{
+        width: 350px;
+    }
+    
+}
+@media (min-width:300px) and (max-width:375px){
+    
+    #taskDueTime{
+        margin-left: 17px;
+        width: 130px;
+        height: 25px;
+    }
+    #reminderTime{
+        width: 130px;
+        height: 25px;
+        margin-top: 30px;
+    }
+    .list-done h6{
+        font-size: 15px;
+        height: 0;
+        padding: 0;
+        margin-left: 0;
+    }
+    
+    .list-done{
+        margin-left: 10px;
+    }
+    .first{
+        display: grid;
+        grid-template-columns: 1.8fr 0.5fr 1.9fr;
+        margin: 0;
+        padding-top: 5px;
+    }
+    .line{
+        margin-top: 8px;
+        margin-left: 5px;
+    }
+    .line1{
+         margin-left: 5px; 
+    }
+    #radio{
+        margin-left: -175px;
+    }
+    .rad{
+        display: flex;
+        margin-top: 5px;
+    }
+    .card{
+        width: 330px;
+        height: 590px;
+    }
+    .del-btn{
+        margin-right: 10px;
+    }
+    .undone h6{
+        font-size: 10px;
+    }
+    #entertask{
+        margin-left: 0;
+        width: 300px;
+    }
+    .shift{
+        margin-left:10px;
+    }
+    .add-button{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        margin-top: -10px;
+    }
+    #add-btn{
+        width: 80px;
+        margin-right: 5px;
+        font-size: 13px;
+    }
+    .todo-list {
+        max-height: 420px;
+    }
+    .edit-input{
+        width: 120px;
+    }
+    .reminder{
+        margin-left: 30px;
+    }
+    .reminder label{
+        font-weight: 600;
+    }
+}
+@media (min-width:768px) and (max-width:1000px){
+    .card{
+        width: 700px;
+        height: 750px;
+    }
+   .todo-list {
+        max-height: 630px;
+    } 
+    #entertask{
+        margin-left: 5px;
+    }
+    #add-btn{
+        margin-right: 5px;
+    }
+}
