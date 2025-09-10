@@ -43,7 +43,7 @@ function getFCMToken() {
     .catch((err) => console.error("Error getting token:", err));
 }
 function notifyBackend(token, title, body) {
-  fetch("http://localhost:3000/send-notification", {
+  fetch("https://todo-list-backend-7kcp.onrender.com/send-notification", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token, title, body })
