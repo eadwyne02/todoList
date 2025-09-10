@@ -17,6 +17,7 @@ if ("serviceWorker" in navigator) {
     .then((registration) => {
       console.log("Service Worker registered:", registration.scope);
       messaging.useServiceWorker(registration);
+      getFCMToken(registration)
     })
     .catch((err) => console.error("Service Worker registration failed:", err));
 }
@@ -32,15 +33,18 @@ Notification.requestPermission().then((permission) => {
 
 let userFcmToken = null;
 
-function getFCMToken() {
-  messaging.getToken({ vapidKey: "BGQso8T14sVHpWsLJnI-FYsvrLqXyO-cZMnqakI6uNS0d9gVUo_Kkmvve8YrqheKNHQdThb1PrY-Tg45-0ZG0qk" })
-    .then((token) => {
-      if (token) {
-        console.log("FCM Token:", token);
-        userFcmToken = token;
-      }
-    })
-    .catch((err) => console.error("Error getting token:", err));
+function getFCMToken(registration) {
+  messaging.getToken({
+    vapidKey: "BGQso8T14sVHpWsLJnI-FYsvrLqXyO-cZMnqakI6uNS0d9gVUo_Kkmvve8YrqheKNHQdThb1PrY-Tg45-0ZG0qk",
+    serviceWorkerRegistration: registration 
+  })
+  .then((token) => {
+    if (token) {
+      console.log("FCM Token:", token);
+      userFcmToken = token;
+    }
+  })
+  .catch((err) => console.error("Error getting token:", err));
 }
 function notifyBackend(token, title, body) {
   fetch("https://todo-list-backend-7kcp.onrender.com/send-notification", {
