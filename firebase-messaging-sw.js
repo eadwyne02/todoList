@@ -13,18 +13,13 @@ firebase.initializeApp({
   measurementId: "G-EW81HT12Y4"
 });
 
-// Get messaging instance
 const messaging = firebase.messaging();
 
-// Handle background messages
 messaging.onBackgroundMessage((payload) => {
-  console.log("[firebase-messaging-sw.js] Received background message:", payload);
-
-  const notificationTitle = payload.notification?.title || "Task Reminder";
-  const notificationOptions = {
-    body: payload.notification?.body || "You have a pending task.",
-    icon: "/icon.png" // optional
-  };
-
+  console.log("[firebase-messaging-sw.js] Received background message ", payload);
+  self.registration.showNotification(payload.notification.title, {
+    body: payload.notification.body,
+    icon: "/todoList/icon.png" // optional
+  });
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
