@@ -13,7 +13,7 @@ const db = firebase.firestore();
 const messaging = firebase.messaging();
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/todoList/firebase-messaging-sw.js")
+  navigator.serviceWorker.register("/todo-list/firebase-messaging-sw.js")
   .then((registration) => {
     console.log("Service Worker registered:", registration.scope);
 
